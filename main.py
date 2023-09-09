@@ -23,9 +23,10 @@ async def get_request(slack_name: str = Query(..., description="Your Slack name"
     if not (two_minutes_ago <= current_time <= two_minutes_later):
         raise HTTPException(status_code=400, detail="UTC time validation failed")
 
-    # Construct GitHub URLs (replace with your actual URLs)
-    github_file_url = "https://github.com/username/repo/blob/main/file_name.ext"
-    github_repo_url = "https://github.com/username/repo"
+    # GitHub URLs
+    github_file_url = "https://github.com/sneekywhite/get-request/blob/main/main.py"
+    github_repo_url = "https://github.com/sneekywhite/get-request.git"
+    status_code:int = 200
 
 
     response = {
@@ -35,7 +36,7 @@ async def get_request(slack_name: str = Query(..., description="Your Slack name"
         "track": track,
         "github_file_url": github_file_url,
         "github_repo_url": github_repo_url,
-        "status_code": 200
+        "status_code": status_code
     }
 
     
