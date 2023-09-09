@@ -1,5 +1,5 @@
 from datetime import timedelta, datetime
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, status
 from fastapi.encoders import jsonable_encoder
 
 
@@ -26,7 +26,7 @@ async def get_request(slack_name: str = Query(..., description="Your Slack name"
     # GitHub URLs
     github_file_url = "https://github.com/sneekywhite/get-request/blob/main/main.py"
     github_repo_url = "https://github.com/sneekywhite/get-request.git"
-    status_code:int = 200
+    status_code:int = status.HTTP_200_OK
 
 
     response = {
