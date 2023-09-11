@@ -1,12 +1,18 @@
 from datetime import timedelta, datetime
-from fastapi import FastAPI, HTTPException, Query, status
+from fastapi import FastAPI, HTTPException, Query, status,APIRouter
 from fastapi.encoders import jsonable_encoder
 
 
 app = FastAPI()
 
+api_router = APIRouter(
+    prefix = '/api',
+    tags = ['GET METHOD']
+)
 
-@app.get('/api', tags=['GET REQUEST'])
+
+#@app.get('/api', tags=['GET REQUEST'])
+@api_router.get('/')
 async def get_request(slack_name: str = Query(..., description="Your Slack name"),
     track: str = Query(..., description="Your chosen track")):
 
@@ -40,6 +46,6 @@ async def get_request(slack_name: str = Query(..., description="Your Slack name"
     }
 
     
-    return jsonable_encoder(response)
+    return (response)
 
     
