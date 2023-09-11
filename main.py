@@ -21,7 +21,7 @@ async def get_request(slack_name: str = Query(..., description="Your Slack name"
 
     # Get current UTC time
     current_time = datetime.utcnow()
-    utc_time = current_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+    utc_time = current_time.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     # Validate UTC time within +/-2 minutes
     two_minutes_ago = current_time - timedelta(minutes=2)
