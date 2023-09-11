@@ -5,14 +5,10 @@ from fastapi.encoders import jsonable_encoder
 
 app = FastAPI()
 
-api_router = APIRouter(
-    prefix = '/api',
-    tags = ['GET METHOD']
-)
 
 
-#@app.get('/api', tags=['GET REQUEST'])
-@api_router.get('/')
+
+@app.get('/api', tags=['GET REQUEST'])
 async def get_request(slack_name: str = Query(..., description="Your Slack name"),
     track: str = Query(..., description="Your chosen track")):
 
